@@ -94,7 +94,7 @@ ScreenRecoveryUI::ScreenRecoveryUI() :
 // Should only be called with updateMutex locked.
 void ScreenRecoveryUI::draw_background_locked(Icon icon) {
     pagesIdentical = false;
-    gr_color(0, 0, 0, 255);
+    SetColor(TEXT_FILL);
     gr_clear();
 
     if (icon) {
@@ -161,7 +161,7 @@ void ScreenRecoveryUI::draw_progress_locked() {
         int dy = bottomOfIcon + (bottomOfUsableHeight - bottomOfIcon) / 2 - height / 2;
 
         // Erase behind the progress bar (in case this was a progress-only update)
-        gr_color(0, 0, 0, 255);
+        SetColor(TEXT_FILL);
         gr_fill(dx, dy, width, height);
 
         if (progressBarType == DETERMINATE) {
@@ -195,23 +195,25 @@ void ScreenRecoveryUI::SetColor(UIElement e) {
             gr_color(249, 194, 0, 255);
             break;
         case HEADER:
-            gr_color(247, 0, 6, 255);
+            gr_color(111,111,111,255);
             break;
         case MENU:
+            gr_color(87, 85, 88, 255);
+            break;
         case MENU_SEL_BG:
-            gr_color(106, 103, 102, 255);
+            gr_color(194, 55, 48, 255);
             break;
         case MENU_SEL_BG_ACTIVE:
             gr_color(138, 135, 134, 255);
             break;
         case MENU_SEL_FG:
-            gr_color(0, 177, 229, 255);
+            gr_color(255, 255, 255, 255);
             break;
         case LOG:
-            gr_color(196, 196, 196, 255);
+            gr_color(76, 76, 76, 255);
             break;
         case TEXT_FILL:
-            gr_color(0, 0, 0, 160);
+            gr_color(3, 32, 66, 255);
             break;
         case ERROR_TEXT:
             gr_color(255, 0, 0, 255);
